@@ -16,4 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end
 
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/main.yml"
+  end
+
 end
